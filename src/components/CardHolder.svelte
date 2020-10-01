@@ -1,21 +1,13 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher();
     import StudyCard from './StudyCard.svelte';
 
-    export let allCards = [
-        {
-            question:
-                'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, voluptatibus quas magnam laborum molestias dignissimos eum tempore, sequi dolorem deserunt ducimus vero? Commodi adipisci corporis hic nihil tenetur sunt eligendi exercitationem doloremque?',
-            answer:
-                'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis enim et doloremque, eligendi rem reprehenderit corrupti.',
-        },
-    ];
+    export let allCards = [];
 </script>
 
-<div>
-    {#each allCards as card}
-        <StudyCard>
-            <p slot="question">{card.question}</p>
-            <p slot="answer">{card.answer}</p>
-        </StudyCard>
-    {/each}
-</div>
+{#each allCards as { id, question, answer } (id)}
+    <StudyCard on:delCard={dispatch('handleDelCard', id)}>
+        <span slot="question">{question}</span><span slot="answer">{answer}</span>
+    </StudyCard>
+{/each}

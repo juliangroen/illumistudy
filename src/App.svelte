@@ -11,12 +11,14 @@
 
     let allCards = [
         {
+            id: Math.random(),
             question:
                 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, excepturi dolor consequuntur quae nulla doloribus molestias. Nostrum exercitationem neque aliquam, necessitatibus atque odit accusamus veritatis, est consequatur ex placeat tenetur repudiandae quidem.',
             answer:
                 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit delectus ratione, veniam quisquam id excepturi fugit.',
         },
         {
+            id: Math.random(),
             question:
                 'Doloremque saepe repellat exercitationem, velit magnam corporis harum fuga vel sit cum reprehenderit. Magni nesciunt aliquid ab est incidunt! Nulla illo fuga debitis, iusto ipsam expedita quis optio molestias perferendis numquam sed!',
             answer:
@@ -28,6 +30,11 @@
         allCards = [...allCards, e.detail];
         currentPage = 'study';
     };
+
+    const handleDelCard = (e) => {
+        let updatedCards = [...allCards].filter((card) => card.id !== e.detail);
+        allCards = updatedCards;
+    };
 </script>
 
 <style>
@@ -38,7 +45,7 @@
 <Nav {currentPage} on:changeSelected={changeSelected} />
 <main class="px-4 pt-6">
     {#if currentPage === 'study'}
-        <CardHolder {allCards} />
+        <CardHolder {allCards} on:handleDelCard={handleDelCard} />
     {:else if currentPage === 'create'}
         <CreateCardForm on:handleNewCard={handleNewCard} />
     {/if}

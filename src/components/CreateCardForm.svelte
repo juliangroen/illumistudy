@@ -31,7 +31,9 @@
                 return;
             }
         }
-        dispatch('handleNewCard', newCard);
+        let id = Math.random();
+        let createdCard = { id, ...newCard };
+        dispatch('handleNewCard', createdCard);
     };
 </script>
 
