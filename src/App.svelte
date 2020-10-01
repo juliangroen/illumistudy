@@ -1,11 +1,13 @@
 <script>
     import CardHolder from './components/CardHolder.svelte';
+    import CreateCardForm from './components/CreateCardForm.svelte';
     import Footer from './components/Footer.svelte';
     import Header from './components/Header.svelte';
     import Nav from './components/Nav.svelte';
     import Tailwindcss from './Tailwindcss.svelte';
 
-    let currentPage = 'study';
+    //let currentPage = 'study';
+    let currentPage = 'create';
     const changeSelected = (e) => (currentPage = e.detail);
 
     let allCards = [
@@ -21,19 +23,12 @@
             answer:
                 'Voluptatem, maxime error blanditiis consequuntur eaque illo, nulla, esse in pariatur quod consectetur fugiat neque accusantium.',
         },
-        {
-            question:
-                'Non, nulla error dolores a voluptatum placeat amet laborum ullam earum mollitia iusto repellat modi, sequi perspiciatis magnam inventore sapiente nostrum eos saepe necessitatibus aperiam. Ab exercitationem molestias laboriosam molestiae dolorum asperiores.',
-            answer:
-                'Sequi, quia eum. Maxime voluptatibus architecto perferendis atque veritatis quasi optio asperiores aperiam, quaerat dolore. Voluptates!',
-        },
-        {
-            question:
-                'Temporibus, omnis expedita. Sint odit sed quibusdam sit porro reprehenderit quam cupiditate ad. Quas ut odit quaerat reprehenderit! Iste vero voluptatem assumenda nisi ullam, mollitia saepe rem facere cum at quis incidunt?',
-            answer:
-                'Error cum aliquam odio deleniti quam, et voluptatem veniam minus ipsum ipsa eaque repellat itaque quas.',
-        },
     ];
+
+    const handleNewCard = (e) => {
+        allCards = [...allCards, e.detail];
+        currentPage = 'study';
+    };
 </script>
 
 <style>
@@ -46,7 +41,7 @@
     {#if currentPage === 'study'}
         <CardHolder {allCards} />
     {:else if currentPage === 'create'}
-        <div>Create New Cards Page</div>
+        <CreateCardForm on:handleNewCard={handleNewCard} />
     {/if}
 </main>
 <Footer />
