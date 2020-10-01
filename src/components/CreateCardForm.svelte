@@ -68,7 +68,7 @@
         bind:value={newAnswer}
         on:input={() => handleLength(newAnswer.trim(), 'answer')} />
     <input
-        class="bg-teal-400 cursor-pointer p-2 mb-6"
+        class="bg-teal-400 border-4 border-teal-400 hover:border-teal-500 cursor-pointer p-2"
         type="button"
         value="Create Study Card"
         on:click={handleCreate} />

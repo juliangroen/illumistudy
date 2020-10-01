@@ -4,23 +4,22 @@
     export let currentPage;
 </script>
 
-<style>
+<style lang="postcss">
     .selected {
-        @apply bg-gray-300;
-        @apply text-teal-400;
+        @apply bg-gray-300 text-teal-400 border-teal-400;
     }
 </style>
 
 <nav class="flex flex-row bg-gray-400 text-gray-600 text-lg">
     <div
         class:selected={currentPage === 'study'}
-        class="cursor-pointer w-full text-center p-4"
+        class="border-b-4 border-gray-400 hover:border-gray-500 cursor-pointer w-full text-center p-4"
         on:click={() => dispatch('changeSelected', 'study')}>
         Study Cards
     </div>
     <div
         class:selected={currentPage === 'create'}
-        class="cursor-pointer w-full text-center p-4"
+        class="border-b-4 border-gray-400 hover:border-gray-500 cursor-pointer w-full text-center p-4"
         on:click={() => dispatch('changeSelected', 'create')}>
         Create New Cards
     </div>

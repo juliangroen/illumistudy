@@ -6,8 +6,7 @@
     import Nav from './components/Nav.svelte';
     import Tailwindcss from './Tailwindcss.svelte';
 
-    //let currentPage = 'study';
-    let currentPage = 'create';
+    let currentPage = 'study';
     const changeSelected = (e) => (currentPage = e.detail);
 
     let allCards = [
