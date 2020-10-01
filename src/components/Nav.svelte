@@ -10,7 +10,7 @@
     }
 </style>
 
-<nav class="flex flex-row bg-gray-400 text-gray-600 text-lg">
+<nav class="flex flex-row bg-gray-400 text-gray-600 text-sm sm:text-base">
     <div
         class:selected={currentPage === 'study'}
         class="border-b-4 border-gray-400 hover:border-gray-500 cursor-pointer w-full text-center p-4"

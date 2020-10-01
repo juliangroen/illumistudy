@@ -37,17 +37,25 @@
     };
 </script>
 
-<style>
+<style lang="postcss">
+    :global(body) {
+        @apply text-gray-800 font-mono;
+    }
 </style>
 
 <Tailwindcss />
-<Header />
-<Nav {currentPage} on:changeSelected={changeSelected} />
-<main class="px-4 pt-6">
-    {#if currentPage === 'study'}
-        <CardHolder {allCards} on:handleDelCard={handleDelCard} />
-    {:else if currentPage === 'create'}
-        <CreateCardForm on:handleNewCard={handleNewCard} />
-    {/if}
+
+<main>
+    <div class="max-w-screen-lg mx-auto">
+        <Header />
+        <Nav {currentPage} on:changeSelected={changeSelected} />
+        <div class="p-2 sm:p-4 lg:px-0">
+            {#if currentPage === 'study'}
+                <CardHolder {allCards} on:handleDelCard={handleDelCard} />
+            {:else if currentPage === 'create'}
+                <CreateCardForm on:handleNewCard={handleNewCard} />
+            {/if}
+        </div>
+        <Footer />
+    </div>
 </main>
-<Footer />

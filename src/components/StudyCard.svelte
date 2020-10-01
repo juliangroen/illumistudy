@@ -21,7 +21,7 @@
 
 <div
     class:flipped={cardFront === false && visible === true}
-    class="relative bg-gray-400 border-4 border-gray-400 hover:border-gray-500 cursor-pointer text-center h-64 p-8 mb-4 break-words"
+    class="relative bg-gray-400 border-4 border-gray-400 hover:border-gray-500 cursor-pointer text-xs sm:text-base text-center h-56 sm:h-64 p-2 pt-8 sm:p-8 mb-2 lg:mb-0 break-words"
     on:click={() => (cardFront = !cardFront)}>
     <span
         class="absolute right-0 top-0 bg-gray-500 hover:bg-red-400 hover:text-red-800 text-lg font-bold leading-none opacity-50 hover:opacity-100 py-1 px-2 m-2"
