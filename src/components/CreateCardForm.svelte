@@ -35,8 +35,8 @@
     };
 </script>
 
-<form class="flex flex-col justify-center items-center p-2">
-    <legend class="border-b-4 border-teal-400 text-lg text-center w-1/2 p-2 mb-6">Add A New Study Card</legend>
+<form class="flex flex-col justify-center items-center px-2">
+    <legend class="border-b-4 border-teal-400 text-lg text-center w-1/2 pb-2 mb-6">Add A New Study Card</legend>
     <label class="relative w-full mb-2" for="question">
         Question:
         <span class="absolute right-0 bottom-0 text-xs">{questionTotal}</span>
@@ -47,7 +47,7 @@
         characters long at most.
     </p>
     <textarea
-        class="border-2 border-gray-300 w-full p-2 mb-4"
+        class="border-2 border-gray-300 w-full p-2 mb-6"
         name="question"
         rows="4"
         bind:value={newQuestion}
@@ -62,13 +62,13 @@
         characters long at most.
     </p>
     <textarea
-        class="border-2 border-gray-300 w-full p-2 mb-4"
+        class="border-2 border-gray-300 w-full p-2 mb-6"
         name="answer"
         rows="4"
         bind:value={newAnswer}
         on:input={() => handleLength(newAnswer.trim(), 'answer')} />
     <input
-        class="bg-teal-400 cursor-pointer p-2 mb-4"
+        class="bg-teal-400 cursor-pointer p-2 mb-6"
         type="button"
         value="Create Study Card"
         on:click={handleCreate} />
