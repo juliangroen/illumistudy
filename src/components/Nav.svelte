@@ -6,21 +6,21 @@
 
 <style>
     .selected {
-        @apply bg-teal-400;
-        @apply text-gray-800;
+        @apply bg-gray-300;
+        @apply text-teal-400;
     }
 </style>
 
-<nav class="flex flex-row text-gray-600 text-lg">
+<nav class="flex flex-row bg-gray-400 text-gray-600 text-lg">
     <div
         class:selected={currentPage === 'study'}
-        class=" bg-gray-400 cursor-pointer w-full text-center p-4"
+        class="cursor-pointer w-full text-center p-4"
         on:click={() => dispatch('changeSelected', 'study')}>
         Study Cards
     </div>
     <div
         class:selected={currentPage === 'create'}
-        class="bg-gray-400 cursor-pointer w-full text-center p-4"
+        class="cursor-pointer w-full text-center p-4"
         on:click={() => dispatch('changeSelected', 'create')}>
         Create New Cards
     </div>
